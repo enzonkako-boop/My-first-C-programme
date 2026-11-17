@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+
+    int arr[] = {10, 20, 30, 40, 50};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Original array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    printf("\nReversed array: ");
+    for (int i = size - 1; i >= 0; i--) {
+        // last index is size - 1 because counting starts at 0
+        printf("%d ", arr[i]);
+    }                                   
+    printf("\n");
+
+    // 1.Sum
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum = sum + arr[i];
+    }
+
+    // 2.Average
+    double average = (double)sum / size;
+
+    // 3.Largest
+    int largest = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+
+    // 4.Second largest
+    int second = INT_MIN;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] != largest && arr[i] > second) {
+            second = arr[i];
+        }                               
+    }                                  
+
+    printf("Sum: %d\n", sum);
+    printf("Average: %.2f\n", average);
+    printf("Largest: %d\n", largest);
+    printf("Second largest: %d\n", second);
+     
+     
+	 return 0;
+	
+	
+}
